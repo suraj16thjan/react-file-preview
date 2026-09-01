@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18, 20, 22]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - run: npm ci
+
+      - name: Type check
+        run: npx tsc -b --noEmit
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build library
+        run: npm run build:lib
+
+      - name: Verify dist output
+        run: |
+          test -f dist/index.js || (echo "Missing dist/index.js" && exit 1)
+          test -f dist/index.d.ts || (echo "Missing dist/index.d.ts" && exit 1)
+
+      - name: Check package size
+        run: |
+          SIZE=$(npm pack --dry-run 2>&1 | grep "package size" | awk '{print $4}')
+          echo "Package size: $SIZE"

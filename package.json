@@ -1,0 +1,84 @@
+{
+  "name": "@suraj16thjan/react-file-preview",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Universal file preview component for React — supports 100+ file formats including images, video, audio, PDF, code, markdown, CSV, JSON, XML, spreadsheets, documents, archives, fonts, and 3D models.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "build:lib": "tsc -b && vite build --mode lib",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build:lib"
+  },
+  "keywords": [
+    "react",
+    "file-preview",
+    "file-viewer",
+    "document-viewer",
+    "image-preview",
+    "video-player",
+    "audio-player",
+    "pdf-viewer",
+    "code-viewer",
+    "syntax-highlighting",
+    "markdown-preview",
+    "csv-viewer",
+    "json-viewer",
+    "spreadsheet-viewer",
+    "3d-viewer",
+    "font-preview",
+    "archive-viewer"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suraj16thjan/react-file-preview"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "highlight.js": "^11.12.0",
+    "marked": "^18.0.11",
+    "papaparse": "^5.7.0"
+  },
+  "optionalDependencies": {
+    "@react-three/drei": "^10.7.8",
+    "@react-three/fiber": "^9.7.0",
+    "three": "^0.185.1",
+    "jszip": "^3.10.1",
+    "mammoth": "^1.12.2",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/papaparse": "^5.5.2",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@types/three": "^0.185.4",
+    "@vitejs/plugin-react": "^6.1.0",
+    "oxlint": "^1.79.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.2",
+    "vite-plugin-dts": "^5.1.0"
+  }
+}
